@@ -1,0 +1,348 @@
+{
+  "analysis_timestamp": "2025-06-17T16:22:36.241003",
+  "protocol_config": {
+    "volumes": [
+      50,
+      100,
+      150,
+      200
+    ],
+    "liquids": [
+      "DYE_ddH2O",
+      "DYE-FREE_ddH2O",
+      "GLYCEROL",
+      "ETHANOL"
+    ],
+    "schemes": {
+      "DYE_ddH2O": [
+        50,
+        100,
+        150,
+        200
+      ],
+      "DYE-FREE_ddH2O": [
+        50,
+        100,
+        150,
+        200
+      ],
+      "GLYCEROL": [
+        50,
+        100,
+        150,
+        200
+      ],
+      "ETHANOL": [
+        50,
+        100,
+        150,
+        200
+      ]
+    },
+    "expected_cycles": 16,
+    "tip_changes": 4,
+    "special_techniques": {
+      "GLYCEROL": "reverse_pipetting",
+      "ETHANOL": "pre_wetting"
+    },
+    "operator_types": [
+      "freshly_trained_student",
+      "experienced_lab_worker",
+      "automated_liquid_handler"
+    ],
+    "measurement_focus": "reproducibility_metrics",
+    "accuracy_targets": {
+      "50": {
+        "tolerance": "\u00b12%",
+        "expected_cv": "<5%"
+      },
+      "100": {
+        "tolerance": "\u00b11.5%",
+        "expected_cv": "<3%"
+      },
+      "150": {
+        "tolerance": "\u00b11.3%",
+        "expected_cv": "<2.5%"
+      },
+      "200": {
+        "tolerance": "\u00b11%",
+        "expected_cv": "<2%"
+      }
+    },
+    "critical_consistency_factors": [
+      "aspiration_speed_uniformity",
+      "dispensing_angle_consistency",
+      "tip_depth_standardization",
+      "inter_liquid_contamination_prevention",
+      "timing_between_operations",
+      "hand_steadiness_throughout_protocol"
+    ],
+    "expected_completion_time": 1200
+  },
+  "metrics": {
+    "video_info": {
+      "filename": "C0036.MP4",
+      "duration_seconds": 1219.322033898305,
+      "fps": 59,
+      "total_frames": 71940,
+      "processed_frames": 7194,
+      "resolution": "1920x1080",
+      "file_size_gb": 7.477249718271196
+    },
+    "hand_detection": {
+      "frames_with_hands": 382,
+      "hand_detection_rate": 0.053099805393383374,
+      "avg_confidence_dominant": 0.05006176625187608
+    },
+    "protocol_analysis": {
+      "protocol_events": {
+        "total_aspiration_events": 9,
+        "total_dispensing_events": 5,
+        "total_tip_changes": 27,
+        "estimated_cycles": 5,
+        "protocol_completion_percentage": 31.25
+      },
+      "timing_metrics": {
+        "total_time_seconds": 1219.1525423728813,
+        "average_cycle_time": 81.49152542372879,
+        "cycle_time_std": 35.43295638471968,
+        "cycle_consistency_score": 0.5651945867931651,
+        "time_efficiency_score": 0.984290282218824,
+        "expected_vs_actual_time_ratio": 0.984290282218824
+      },
+      "skill_assessment": {
+        "estimated_experience_level": "Novice/Learning",
+        "operator_type_classification": "freshly_trained_student",
+        "overall_skill_score": 0.4,
+        "consistency_rating": "Low",
+        "speed_rating": "Optimal"
+      },
+      "reproducibility_analysis": {
+        "cycle_variability_seconds": 35.43295638471968,
+        "reproducibility_metrics": {
+          "volume_consistency": {
+            "50uL": {
+              "volume": 50,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 0.027816320380366095,
+              "velocity_consistency_cv": 103.1562646113696,
+              "average_duration": 304.66101694915255,
+              "average_velocity": 1.1351716240873684,
+              "cycles": [
+                {
+                  "volume": 50,
+                  "duration": 304.5762711864407,
+                  "total_movement": 5639.211946832843,
+                  "avg_velocity": 3.1363803931217147,
+                  "velocity_std": 36.62653709991864,
+                  "steadiness_score": -10.674241727339602
+                },
+                {
+                  "volume": 50,
+                  "duration": 304.7457627118644,
+                  "total_movement": 351.87345768377435,
+                  "avg_velocity": 0.1955939175562948,
+                  "velocity_std": 2.2935533404375956,
+                  "steadiness_score": -10.666451174822512
+                },
+                {
+                  "volume": 50,
+                  "duration": 304.57627118644064,
+                  "total_movement": 821.5723032403553,
+                  "avg_velocity": 0.4569367648722777,
+                  "velocity_std": 2.694890299852813,
+                  "steadiness_score": -4.884852465611578
+                },
+                {
+                  "volume": 50,
+                  "duration": 304.74576271186436,
+                  "total_movement": 1352.4439820177363,
+                  "avg_velocity": 0.7517754207991864,
+                  "velocity_std": 5.914964048717011,
+                  "steadiness_score": -6.857541419773471
+                }
+              ]
+            },
+            "100uL": {
+              "volume": 100,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 0.027816320380366095,
+              "velocity_consistency_cv": 103.1562646113696,
+              "average_duration": 304.66101694915255,
+              "average_velocity": 1.1351716240873684,
+              "cycles": [
+                {
+                  "volume": 100,
+                  "duration": 304.5762711864407,
+                  "total_movement": 5639.211946832843,
+                  "avg_velocity": 3.1363803931217147,
+                  "velocity_std": 36.62653709991864,
+                  "steadiness_score": -10.674241727339602
+                },
+                {
+                  "volume": 100,
+                  "duration": 304.7457627118644,
+                  "total_movement": 351.87345768377435,
+                  "avg_velocity": 0.1955939175562948,
+                  "velocity_std": 2.2935533404375956,
+                  "steadiness_score": -10.666451174822512
+                },
+                {
+                  "volume": 100,
+                  "duration": 304.57627118644064,
+                  "total_movement": 821.5723032403553,
+                  "avg_velocity": 0.4569367648722777,
+                  "velocity_std": 2.694890299852813,
+                  "steadiness_score": -4.884852465611578
+                },
+                {
+                  "volume": 100,
+                  "duration": 304.74576271186436,
+                  "total_movement": 1352.4439820177363,
+                  "avg_velocity": 0.7517754207991864,
+                  "velocity_std": 5.914964048717011,
+                  "steadiness_score": -6.857541419773471
+                }
+              ]
+            },
+            "150uL": {
+              "volume": 150,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 0.027816320380366095,
+              "velocity_consistency_cv": 103.1562646113696,
+              "average_duration": 304.66101694915255,
+              "average_velocity": 1.1351716240873684,
+              "cycles": [
+                {
+                  "volume": 150,
+                  "duration": 304.5762711864407,
+                  "total_movement": 5639.211946832843,
+                  "avg_velocity": 3.1363803931217147,
+                  "velocity_std": 36.62653709991864,
+                  "steadiness_score": -10.674241727339602
+                },
+                {
+                  "volume": 150,
+                  "duration": 304.7457627118644,
+                  "total_movement": 351.87345768377435,
+                  "avg_velocity": 0.1955939175562948,
+                  "velocity_std": 2.2935533404375956,
+                  "steadiness_score": -10.666451174822512
+                },
+                {
+                  "volume": 150,
+                  "duration": 304.57627118644064,
+                  "total_movement": 821.5723032403553,
+                  "avg_velocity": 0.4569367648722777,
+                  "velocity_std": 2.694890299852813,
+                  "steadiness_score": -4.884852465611578
+                },
+                {
+                  "volume": 150,
+                  "duration": 304.74576271186436,
+                  "total_movement": 1352.4439820177363,
+                  "avg_velocity": 0.7517754207991864,
+                  "velocity_std": 5.914964048717011,
+                  "steadiness_score": -6.857541419773471
+                }
+              ]
+            },
+            "200uL": {
+              "volume": 200,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 0.027816320380366095,
+              "velocity_consistency_cv": 103.1562646113696,
+              "average_duration": 304.66101694915255,
+              "average_velocity": 1.1351716240873684,
+              "cycles": [
+                {
+                  "volume": 200,
+                  "duration": 304.5762711864407,
+                  "total_movement": 5639.211946832843,
+                  "avg_velocity": 3.1363803931217147,
+                  "velocity_std": 36.62653709991864,
+                  "steadiness_score": -10.674241727339602
+                },
+                {
+                  "volume": 200,
+                  "duration": 304.7457627118644,
+                  "total_movement": 351.87345768377435,
+                  "avg_velocity": 0.1955939175562948,
+                  "velocity_std": 2.2935533404375956,
+                  "steadiness_score": -10.666451174822512
+                },
+                {
+                  "volume": 200,
+                  "duration": 304.57627118644064,
+                  "total_movement": 821.5723032403553,
+                  "avg_velocity": 0.4569367648722777,
+                  "velocity_std": 2.694890299852813,
+                  "steadiness_score": -4.884852465611578
+                },
+                {
+                  "volume": 200,
+                  "duration": 304.74576271186436,
+                  "total_movement": 1352.4439820177363,
+                  "avg_velocity": 0.7517754207991864,
+                  "velocity_std": 5.914964048717011,
+                  "steadiness_score": -6.857541419773471
+                }
+              ]
+            }
+          },
+          "liquid_consistency": {
+            "DYE_ddH2O": "      frame_number  time_seconds  hands_detected  ...  dom_hand_y  dominant_hand_velocity  dominant_hand_acceleration\n0                0      0.000000               0  ...         NaN                     0.0                           0\n1               10      0.169492               0  ...         NaN                     0.0                           0\n2               20      0.338983               0  ...         NaN                     0.0                           0\n3               30      0.508475               0  ...         NaN                     0.0                           0\n4               40      0.677966               0  ...         NaN                     0.0                           0\n...            ...           ...             ...  ...         ...                     ...                         ...\n1793         17930    303.898305               0  ...         NaN                     0.0                           0\n1794         17940    304.067797               0  ...         NaN                     0.0                           0\n1795         17950    304.237288               0  ...         NaN                     0.0                           0\n1796         17960    304.406780               0  ...         NaN                     0.0                           0\n1797         17970    304.576271               0  ...         NaN                     0.0                           0\n\n[1798 rows x 8 columns]",
+            "DYE-FREE_ddH2O": "      frame_number  time_seconds  hands_detected  ...  dom_hand_y  dominant_hand_velocity  dominant_hand_acceleration\n1798         17980    304.745763               0  ...         NaN                     0.0                           0\n1799         17990    304.915254               0  ...         NaN                     0.0                           0\n1800         18000    305.084746               0  ...         NaN                     0.0                           0\n1801         18010    305.254237               0  ...         NaN                     0.0                           0\n1802         18020    305.423729               0  ...         NaN                     0.0                           0\n...            ...           ...             ...  ...         ...                     ...                         ...\n3591         35910    608.644068               0  ...         NaN                     0.0                           0\n3592         35920    608.813559               0  ...         NaN                     0.0                           0\n3593         35930    608.983051               0  ...         NaN                     0.0                           0\n3594         35940    609.152542               0  ...         NaN                     0.0                           0\n3595         35950    609.322034               0  ...         NaN                     0.0                           0\n\n[1798 rows x 8 columns]",
+            "GLYCEROL": "      frame_number  time_seconds  hands_detected  ...  dom_hand_y  dominant_hand_velocity  dominant_hand_acceleration\n3596         35960    609.491525               0  ...         NaN                0.000000                           0\n3597         35970    609.661017               0  ...         NaN                0.000000                           0\n3598         35980    609.830508               0  ...         NaN                0.000000                           0\n3599         35990    610.000000               0  ...         NaN                0.000000                           0\n3600         36000    610.169492               0  ...         NaN                0.000000                           0\n...            ...           ...             ...  ...         ...                     ...                         ...\n5389         53890    913.389831               1  ...       837.0               31.016125                           0\n5390         53900    913.559322               1  ...       841.0                4.472136                           0\n5391         53910    913.728814               1  ...       843.0                2.828427                           0\n5392         53920    913.898305               1  ...       846.0                3.605551                           0\n5393         53930    914.067797               1  ...       847.0                3.162278                           0\n\n[1798 rows x 8 columns]",
+            "ETHANOL": "      frame_number  time_seconds  hands_detected  ...  dom_hand_y  dominant_hand_velocity  dominant_hand_acceleration\n5394         53940    914.237288               1  ...       849.0                2.828427                           0\n5395         53950    914.406780               1  ...       850.0                1.000000                           0\n5396         53960    914.576271               1  ...       850.0                1.000000                           0\n5397         53970    914.745763               1  ...       853.0                3.000000                           0\n5398         53980    914.915254               1  ...       853.0                1.000000                           0\n...            ...           ...             ...  ...         ...                     ...                         ...\n7187         71870   1218.135593               0  ...         NaN                0.000000                           0\n7188         71880   1218.305085               0  ...         NaN                0.000000                           0\n7189         71890   1218.474576               0  ...         NaN                0.000000                           0\n7190         71900   1218.644068               0  ...         NaN                0.000000                           0\n7191         71910   1218.813559               0  ...         NaN                0.000000                           0\n\n[1798 rows x 8 columns]"
+          },
+          "technique_adherence": {
+            "reverse_pipetting_glycerol": 1.0,
+            "pre_wetting_ethanol": 1.0,
+            "tip_change_technique": 1.0,
+            "cross_contamination_prevention": 0.7666666666666666
+          },
+          "inter_cycle_variability": {
+            "timing_variability": 1.3196814967145099e-16,
+            "spatial_variability": 0.5,
+            "velocity_variability": 1.1196886527763028,
+            "overall_reproducibility_score": 0.9908687423148247
+          },
+          "overall_metrics": {}
+        },
+        "accuracy_predictions": {
+          "50uL": {
+            "predicted_cv_percent": 25.79602023293749,
+            "target_cv_percent": 5.0,
+            "meets_target": "False",
+            "accuracy_score": 0.0
+          },
+          "100uL": {
+            "predicted_cv_percent": 25.79602023293749,
+            "target_cv_percent": 3.0,
+            "meets_target": "False",
+            "accuracy_score": 0.0
+          },
+          "150uL": {
+            "predicted_cv_percent": 25.79602023293749,
+            "target_cv_percent": 2.5,
+            "meets_target": "False",
+            "accuracy_score": 0.0
+          },
+          "200uL": {
+            "predicted_cv_percent": 25.79602023293749,
+            "target_cv_percent": 2.0,
+            "meets_target": "False",
+            "accuracy_score": 0.0
+          }
+        },
+        "overall_reproducibility_score": 0.9908687423148247,
+        "expected_expert_variability": 2.0,
+        "expected_student_variability": 5.0,
+        "performance_category": "Novice",
+        "accuracy_prediction": "Low"
+      }
+    }
+  },
+  "frame_data_summary": "7194 frames analyzed"
+}

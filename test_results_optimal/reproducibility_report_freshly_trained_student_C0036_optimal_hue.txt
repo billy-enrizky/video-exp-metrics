@@ -1,0 +1,74 @@
+LIQUID HANDLING REPRODUCIBILITY EXPERIMENT ANALYSIS
+======================================================================
+
+Operator Type: Freshly Trained Student
+Video: C0036.MP4
+Analysis Date: 2025-06-17 16:22:36
+
+PROTOCOL EXECUTION SUMMARY:
+  Total Dispensing Events: 5/16 expected
+  Protocol Completion: 31.2%
+  Execution Time: 20.3 minutes
+  Time Consistency Score: 0.565
+
+REPRODUCIBILITY METRICS:
+  Overall Reproducibility Score: 0.991/1.0
+
+ACCURACY PREDICTIONS BY VOLUME:
+  50 μL:
+    Predicted CV: 25.80%
+    Target CV: <5.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  50 μL:
+    Predicted CV: 25.80%
+    Target CV: <5.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  100 μL:
+    Predicted CV: 25.80%
+    Target CV: <3.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  100 μL:
+    Predicted CV: 25.80%
+    Target CV: <3.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  150 μL:
+    Predicted CV: 25.80%
+    Target CV: <2.5%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  150 μL:
+    Predicted CV: 25.80%
+    Target CV: <2.5%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  200 μL:
+    Predicted CV: 25.80%
+    Target CV: <2.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  200 μL:
+    Predicted CV: 25.80%
+    Target CV: <2.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+TECHNIQUE ADHERENCE:
+  Reverse Pipetting (Glycerol): 1.00/1.0
+  Pre-wetting (Ethanol): 1.00/1.0
+  Contamination Prevention: 0.77/1.0
+
+OPERATOR CLASSIFICATION:
+  Classification: freshly_trained_student
+  Confidence: 0.40/1.0
+  Consistency Rating: Low
