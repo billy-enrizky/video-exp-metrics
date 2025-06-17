@@ -1,0 +1,33 @@
+PIPETTING VIDEO ANALYSIS REPORT
+==================================================
+
+Video File: C0036.MP4
+Analysis Date: 2025-06-16 22:54:55
+
+VIDEO PROPERTIES:
+  Duration: 1219.3 seconds
+  Resolution: 1920x1080
+  FPS: 59
+  File Size: 7.48 GB
+  Frames Processed: 34
+
+HAND DETECTION RESULTS:
+  Hand Detection Rate: 73.53%
+  Both Hands Rate: 32.35%
+  Avg Confidence (Dominant): 0.922
+  Avg Confidence (Non-dominant): 0.939
+
+MOVEMENT ANALYSIS:
+  Total Distance (Dominant Hand): 1734.6 pixels
+  Average Velocity: 108.41 pixels/frame
+  Max Velocity: 657.92 pixels/frame
+  Movement Smoothness Score: 0.006
+
+PIPETTE DETECTION:
+  Average Pipette Candidates: 1.8
+  Pipette Detection Rate: 88.24%
+
+ACTIVITY ANALYSIS:
+  Activity Rate: 73.53%
+  Active Frames: 25
+  Inactive Frames: 9

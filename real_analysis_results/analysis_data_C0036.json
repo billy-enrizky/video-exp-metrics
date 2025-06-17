@@ -1,0 +1,45 @@
+{
+  "analysis_timestamp": "2025-06-16T22:54:55.485639",
+  "metrics": {
+    "video_info": {
+      "filename": "C0036.MP4",
+      "duration_seconds": 1219.322033898305,
+      "fps": 59,
+      "total_frames": 71940,
+      "processed_frames": 34,
+      "resolution": "1920x1080",
+      "file_size_gb": 7.477249718271196
+    },
+    "hand_detection": {
+      "frames_with_hands": 25,
+      "frames_with_both_hands": 11,
+      "hand_detection_rate": 0.7352941176470589,
+      "both_hands_rate": 0.3235294117647059,
+      "avg_confidence_dominant": 0.9215038229118694,
+      "avg_confidence_non_dominant": 0.9388451484533457
+    },
+    "movement_analysis": {
+      "total_distance_dominant": 1734.5969772938356,
+      "avg_velocity_dominant": 108.41231108086473,
+      "max_velocity_dominant": 657.9186879850731,
+      "velocity_std_dominant": 175.09032581264887,
+      "smoothness_score": 0.005678903684146448
+    },
+    "pipette_detection": {
+      "avg_pipette_candidates": 1.7941176470588236,
+      "frames_with_pipette": 30,
+      "pipette_detection_rate": 0.8823529411764706
+    },
+    "timing_analysis": {
+      "processing_duration": 0.576271186440678,
+      "active_frames": 25,
+      "inactive_frames": 9,
+      "activity_rate": 0.7352941176470589
+    }
+  },
+  "processing_info": {
+    "max_frames_processed": 1000,
+    "skip_frames": 30,
+    "total_data_points": 34
+  }
+}
