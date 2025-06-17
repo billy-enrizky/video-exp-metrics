@@ -19,7 +19,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class ProtocolPipettingAnalyzer:
-    def __init__(self, video_path, output_dir="protocol_analysis_results", glove_mode=True, hue_offset=90):
+    def __init__(self, video_path, output_dir="protocol_analysis_results", glove_mode=True, hue_offset=135):
         self.video_path = Path(video_path)
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
@@ -72,8 +72,8 @@ class ProtocolPipettingAnalyzer:
         self.hands = self.mp_hands.Hands(
             static_image_mode=False,
             max_num_hands=2,
-            min_detection_confidence=0.3,
-            min_tracking_confidence=0.3
+            min_detection_confidence=0.2,  # Lower threshold for gloved hands
+            min_tracking_confidence=0.2   # Lower threshold for gloved hands
         )
         self.mp_draw = mp.solutions.drawing_utils
         
@@ -141,12 +141,14 @@ class ProtocolPipettingAnalyzer:
         hand_info = {
             'dominant_hand': None,
             'non_dominant_hand': None,
-            'hands_detected': 0
+            'hands_detected': 0,
+            'hue_offset_applied': self.hue_offset if self.glove_mode else 0
         }
         
         if results.multi_hand_landmarks:
             hand_info['hands_detected'] = len(results.multi_hand_landmarks)
             
+            all_hands = []
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
                 hand_label = handedness.classification[0].label
                 confidence = handedness.classification[0].score
@@ -160,13 +162,18 @@ class ProtocolPipettingAnalyzer:
                 hand_data = {
                     'landmarks': landmarks,
                     'confidence': confidence,
-                    'center': self.calculate_hand_center(landmarks)
+                    'center': self.calculate_hand_center(landmarks),
+                    'label': hand_label
                 }
-                
-                if hand_label == 'Right':
-                    hand_info['dominant_hand'] = hand_data
-                else:
-                    hand_info['non_dominant_hand'] = hand_data
+                all_hands.append(hand_data)
+            
+            # Sort hands by confidence and select the best one as dominant
+            all_hands.sort(key=lambda h: h['confidence'], reverse=True)
+            
+            if len(all_hands) >= 1:
+                hand_info['dominant_hand'] = all_hands[0]
+            if len(all_hands) >= 2:
+                hand_info['non_dominant_hand'] = all_hands[1]
         
         return hand_info
     
