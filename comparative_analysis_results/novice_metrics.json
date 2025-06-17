@@ -1,0 +1,41 @@
+{
+  "operator_type": "Novice",
+  "video_info": {
+    "duration_seconds": 1200,
+    "fps": 30,
+    "sample_rate": 30,
+    "data_points": 1200
+  },
+  "hand_tracking": {
+    "detection_rate": 0.7991666666666667,
+    "avg_confidence": 0.9,
+    "tracking_stability": 0.6
+  },
+  "movement_analysis": {
+    "total_distance_px": 1730.380865321958,
+    "avg_velocity_px_per_frame": 35.26490364634397,
+    "max_velocity_px_per_frame": 112.61495847619261,
+    "velocity_std": 18.796350842278024,
+    "smoothness_score": 0.1736331116184046,
+    "jerkiness_score": 0.8263668883815953,
+    "movement_efficiency": 0.4
+  },
+  "pipette_analysis": {
+    "avg_angle_degrees": 15.202522305922265,
+    "angle_variance": 272.20207464339313,
+    "angle_consistency": 0.0354356005803167,
+    "estimated_cycles": 48,
+    "cycle_consistency": 0.54
+  },
+  "consistency_metrics": {
+    "spatial_consistency": 0.6,
+    "temporal_consistency": 0.54,
+    "movement_pattern_consistency": 0.5700000000000001,
+    "overall_consistency": 0.6
+  },
+  "performance_indicators": {
+    "error_likelihood": 0.15,
+    "skill_level_score": 0.55,
+    "improvement_potential": 0.4
+  }
+}

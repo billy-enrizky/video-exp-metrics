@@ -1,0 +1,76 @@
+{
+  "summary": {
+    "Expert": {
+      "smoothness": 0.28586253116426324,
+      "consistency": 0.95,
+      "efficiency": 1.08,
+      "error_rate": 0.02
+    },
+    "Intermediate": {
+      "smoothness": 0.22991477104654626,
+      "consistency": 0.8,
+      "efficiency": 0.7,
+      "error_rate": 0.08
+    },
+    "Novice": {
+      "smoothness": 0.1736331116184046,
+      "consistency": 0.6,
+      "efficiency": 0.4,
+      "error_rate": 0.15
+    }
+  },
+  "key_findings": [
+    "Best movement smoothness: Expert (score: 0.286)",
+    "Best consistency: Expert (score: 0.950)",
+    "Lowest error rate: Expert (rate: 2.0%)",
+    "Smoothness range: 0.112",
+    "Consistency range: 0.350"
+  ],
+  "recommendations": {
+    "Expert": [
+      "Focus on smoother hand movements - practice slow, controlled motions"
+    ],
+    "Intermediate": [
+      "Focus on smoother hand movements - practice slow, controlled motions",
+      "Optimize workflow to reduce unnecessary movements"
+    ],
+    "Novice": [
+      "Focus on smoother hand movements - practice slow, controlled motions",
+      "Work on developing consistent movement patterns",
+      "Slow down and focus on accuracy over speed",
+      "Optimize workflow to reduce unnecessary movements"
+    ]
+  },
+  "operator_profiles": {
+    "Expert": {
+      "skill_level": "Expert",
+      "strengths": [
+        "Consistent technique"
+      ],
+      "areas_for_improvement": [
+        "Movement smoothness",
+        "Pipette angle control"
+      ],
+      "overall_score": 0.6179312655821316
+    },
+    "Intermediate": {
+      "skill_level": "Intermediate",
+      "strengths": [],
+      "areas_for_improvement": [
+        "Movement smoothness",
+        "Pipette angle control"
+      ],
+      "overall_score": 0.5149573855232732
+    },
+    "Novice": {
+      "skill_level": "Novice",
+      "strengths": [],
+      "areas_for_improvement": [
+        "Movement smoothness",
+        "Pipette angle control",
+        "Error reduction"
+      ],
+      "overall_score": 0.38681655580920227
+    }
+  }
+}
