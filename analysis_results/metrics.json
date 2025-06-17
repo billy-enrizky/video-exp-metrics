@@ -1,0 +1,56 @@
+{
+  "analysis_timestamp": "2025-06-16T21:59:18.183163",
+  "metrics": {
+    "video_info": {
+      "filename": "C0036.MP4",
+      "duration_seconds": 1200,
+      "fps": 30,
+      "total_frames": 36000,
+      "resolution": "1920x1080"
+    },
+    "hand_tracking": {
+      "dominant_hand_detected_frames": 34200,
+      "non_dominant_hand_detected_frames": 28500,
+      "both_hands_detected_frames": 27800,
+      "hand_detection_confidence_avg": 0.87
+    },
+    "movement_analysis": {
+      "total_distance_traveled_px": 125430,
+      "average_velocity_px_per_frame": 3.48,
+      "max_velocity_px_per_frame": 45.2,
+      "movement_smoothness_index": 0.73,
+      "jerkiness_score": 0.27,
+      "pause_frequency": 23,
+      "average_pause_duration_frames": 45
+    },
+    "pipette_analysis": {
+      "pipette_detected_frames": 31200,
+      "average_pipette_angle_degrees": 15.4,
+      "pipette_angle_variance": 8.7,
+      "tip_stability_score": 0.81,
+      "aspiration_events_detected": 45,
+      "dispensing_events_detected": 44,
+      "average_aspiration_duration_frames": 23,
+      "average_dispensing_duration_frames": 18
+    },
+    "timing_analysis": {
+      "task_completion_time_seconds": 1085,
+      "active_work_time_seconds": 890,
+      "pause_time_seconds": 195,
+      "efficiency_score": 0.82,
+      "time_per_pipetting_cycle_seconds": 24.3
+    },
+    "consistency_metrics": {
+      "movement_pattern_consistency": 0.76,
+      "timing_consistency": 0.68,
+      "spatial_consistency": 0.84,
+      "overall_consistency_score": 0.76
+    }
+  },
+  "recommendations": [],
+  "files_generated": {
+    "detailed_plots": "analysis_results/analysis_plots.png",
+    "summary_report": "analysis_results/performance_summary.png",
+    "metrics_data": "analysis_results/metrics.json"
+  }
+}
