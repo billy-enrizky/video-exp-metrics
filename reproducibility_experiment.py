@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Reproducibility Experiment Analysis
 Specifically designed for the liquid handling reproducibility study comparing:
@@ -13,17 +14,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import argparse
-from pathlib import Path
-from datetime import datetime
-from protocol_analyzer import ProtocolPipettingAnalyzer
-import warnings
-warnings.filterwarnings('ignore')
 from pathlib import Path
 import json
 from datetime import datetime
 import argparse
 from protocol_analyzer import ProtocolPipettingAnalyzer
+from protocol_metrics_plotter_fixed import ProtocolMetricsPlotter
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -75,12 +71,12 @@ class ReproducibilityExperimentAnalyzer:
             video_path=video_path,
             output_dir=self.output_dir / f"{operator_type}_{operator_id or 'unknown'}",
             glove_mode=True,
-            hue_offset=90
+            hue_offset=135  # Optimal value for glove detection
         )
         
         # Run analysis with appropriate sampling for reproducibility focus
-        max_frames = 50000   # Larger sample for better analysis, increase to None for full video
-        skip_frames = 15    # Reasonable sampling
+        max_frames = 5000  # Process more frames for better accuracy
+        skip_frames = 15    # Higher resolution sampling
         
         results = analyzer.run_analysis(max_frames=max_frames, skip_frames=skip_frames)
         
@@ -103,7 +99,39 @@ class ReproducibilityExperimentAnalyzer:
         # Generate reproducibility-focused report
         self._generate_reproducibility_report(analysis_key)
         
+        # Generate protocol metrics plots
+        self._generate_protocol_plots(analysis_key)
+        
         return results
+    
+    def _generate_protocol_plots(self, analysis_key):
+        """Generate comprehensive protocol metrics plots"""
+        data = self.analysis_results[analysis_key]
+        
+        # Find the protocol analysis data file
+        operator_dir = self.output_dir / f"{data['operator_type']}_{data['operator_id'] or 'unknown'}"
+        data_files = list(operator_dir.glob("protocol_analysis_data_*.json"))
+        
+        if data_files:
+            data_path = data_files[0]
+            plot_output_dir = operator_dir / "protocol_plots"
+            
+            try:
+                print(f"\n🎨 Generating protocol metrics plots...")
+                plotter = ProtocolMetricsPlotter(data_path, plot_output_dir)
+                plots_created = plotter.generate_all_plots()
+                
+                print(f"✅ Generated {len(plots_created)} protocol plots")
+                return plots_created
+                
+            except Exception as e:
+                print(f"❌ Failed to generate plots: {e}")
+                import traceback
+                traceback.print_exc()
+                return []
+        else:
+            print(f"⚠️ No protocol analysis data found for plotting")
+            return []
     
     def _generate_reproducibility_report(self, analysis_key):
         """Generate a reproducibility-focused analysis report"""
@@ -137,6 +165,12 @@ class ReproducibilityExperimentAnalyzer:
                 for volume_key, prediction in data['accuracy_predictions'].items():
                     volume = int(volume_key.replace('uL', ''))
                     target = self.experiment_config['accuracy_targets'][volume]
+                    
+                    f.write(f"  {volume} μL:\n")
+                    f.write(f"    Predicted CV: {prediction['predicted_cv_percent']:.2f}%\n")
+                    f.write(f"    Target CV: <{target['cv_target']:.1f}%\n")
+                    f.write(f"    Meets Target: {'✓ YES' if prediction['meets_target'] else '✗ NO'}\n")
+                    f.write(f"    Accuracy Score: {prediction['accuracy_score']:.3f}/1.0\n\n")
                     
                     f.write(f"  {volume} μL:\n")
                     f.write(f"    Predicted CV: {prediction['predicted_cv_percent']:.2f}%\n")
