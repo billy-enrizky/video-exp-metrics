@@ -1,0 +1,11 @@
+opencv-python==4.9.0.80
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.8.4
+seaborn==0.13.2
+scipy==1.13.0
+scikit-learn==1.4.2
+mediapipe==0.10.11
+tqdm==4.66.4
+plotly==5.20.0
+ffmpeg-python==0.2.0
