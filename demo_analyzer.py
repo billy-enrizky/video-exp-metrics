@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Demo Video Analysis for Pipetting Experiments
 Showcases the capabilities of the video analysis framework
