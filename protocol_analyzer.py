@@ -19,7 +19,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class ProtocolPipettingAnalyzer:
-    def __init__(self, video_path, output_dir="protocol_analysis_results", glove_mode=True, hue_offset=135):
+    def __init__(self, video_path, output_dir="protocol_analysis_results", glove_mode=True, hue_offset=90):
         self.video_path = Path(video_path)
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
@@ -343,6 +343,7 @@ class ProtocolPipettingAnalyzer:
         if not self.cap:
             self.initialize_video()
         
+        print(self.frame_count)
         total_frames_to_process = min(max_frames or self.frame_count, self.frame_count)
         frame_indices = list(range(0, total_frames_to_process, skip_frames))
         
@@ -705,7 +706,6 @@ class ProtocolPipettingAnalyzer:
     def _detect_reverse_pipetting_pattern(self, data):
         """Detect if reverse pipetting technique is being used"""
         # Look for characteristic double-aspiration pattern
-        # This would need actual movement analysis - placeholder implementation
         if data.empty:
             return 0.5
         
