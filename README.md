@@ -1,5 +1,10 @@
 # Pipetting Video Analysis Framework
 
+# Quick Run
+```bash
+python reproducibility_experiment.py C0045.MP4 --operator-type experienced_lab_worker --operator-id C0045 --output-dir reproducibility_results
+```
+
 ## Overview
 
 This framework is designed to analyze videos of people performing liquid handling/pipetting tasks to extract meaningful metrics that can help identify factors contributing to accuracy and consistency differences between operators.
