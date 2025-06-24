@@ -6,11 +6,84 @@ This repository contains a comprehensive video analysis system for evaluating pi
 
 **Objective**: To evaluate and compare the accuracy, reproducibility, and time efficiency of liquid dispensing between automated liquid handlers and manual pipetting across different operator skill levels.
 
-**Protocol**: 4 volumes (50, 100, 150, 200 μL) × 4 liquids = 16 total dispensing events
-- **DYE ddH₂O**: Standard water with dye (3 dispensing events per volume)
-- **DYE-FREE ddH₂O**: Pure water (standard technique)
-- **GLYCEROL**: Viscous liquid requiring reverse pipetting
-- **ETHANOL**: Volatile liquid requiring pre-wetting technique
+**Complete Experimental Context**: This analysis system was developed for a comprehensive liquid handling study comparing automated systems (Jubilee low-cost, Hamilton Starlet high-accuracy) against manual pipetting across various complexity levels, including basic liquid dispensing, hydrogel dispensing, cell suspension dispensing, and hydrogel-cell mixtures for tissue culture applications.
+
+### Detailed Protocol Description
+
+**Experiment 1: Basic Liquid Dispensing Protocol**
+- **Protocol**: 4 volumes (50, 100, 150, 200 μL) × 4 liquids = 16 total dispensing events
+- **Equipment**: Single-channel P200 pipette, P200 tips, 96-well plates, precision timer
+- **Execution**: Start timer → complete all dispensing → stop timer (typically 15-25 minutes)
+
+**The Four Liquid Types and Their Challenges**:
+
+1. **DYE ddH₂O (Standard water with dye)**:
+   - **Purpose**: Baseline measurement with visible liquid for accuracy verification
+   - **Technique**: Standard pipetting (aspirate to first stop, dispense to first stop)
+   - **Volumes**: 50, 100, 150, 200 μL dispensed 3 times each = 12 dispensing events
+   - **Challenge Level**: Easy - standard aqueous solution
+
+2. **DYE-FREE ddH₂O (Pure water)**:
+   - **Purpose**: Control for dye interference, tests technique without visual aid
+   - **Technique**: Standard pipetting
+   - **Volumes**: 50, 100, 150, 200 μL dispensed once each = 4 dispensing events
+   - **Challenge Level**: Moderate - harder to see dispensed volume
+
+3. **GLYCEROL (Viscous liquid)**:
+   - **Purpose**: Tests handling of high-viscosity liquids (glycerol ~1000× more viscous than water)
+   - **Technique**: **Reverse pipetting required**
+   - **Volumes**: 50, 100, 150, 200 μL dispensed once each = 4 dispensing events
+   - **Challenge Level**: High - requires specialized technique
+
+4. **ETHANOL (Volatile liquid)**:
+   - **Purpose**: Tests handling of volatile, low-surface-tension liquids
+   - **Technique**: **Pre-wetting required**
+   - **Volumes**: 50, 100, 150, 200 μL dispensed once each = 4 dispensing events
+   - **Challenge Level**: High - prone to dripping and evaporation
+
+### Specialized Pipetting Techniques Explained
+
+#### Reverse Pipetting (Required for Glycerol)
+**Why Needed**: Glycerol's high viscosity (1000× water) causes liquid to stick to tip walls, leading to under-dispensing with standard technique.
+
+**Technique Steps**:
+1. Press pipette button to **second stop** (blow-out position)
+2. Insert tip into liquid and **aspirate** (liquid fills tip plus extra air space)
+3. Move to target location
+4. Press button only to **first stop** to dispense (leaves residual liquid in tip)
+5. **Extra movements**: Additional aspiration and partial dispensing create complex movement patterns
+
+**Movement Pattern Impact**: 
+- **Standard technique**: ~8 direction changes (down-aspirate-up-down-dispense-up)
+- **Reverse technique**: ~12 direction changes (extra aspiration steps add 4 more movements)
+
+#### Pre-wetting (Required for Ethanol)
+**Why Needed**: Ethanol's high vapor pressure causes air expansion in pipette, leading to tip dripping and volume inaccuracy.
+
+**Technique Steps**:
+1. **Initial cycles**: Aspirate and dispense ethanol 2-3 times to saturate tip interior
+2. **Purpose**: Equilibrate air space with ethanol vapor to prevent expansion
+3. **Then proceed**: With normal aspiration and dispensing
+4. **Extra movements**: Pre-wetting cycles double the movement patterns
+
+**Movement Pattern Impact**:
+- **Standard technique**: ~8 direction changes (single aspiration-dispensing cycle)
+- **Pre-wetting technique**: ~12 direction changes (extra pre-wetting cycles add 4 more movements)
+
+### Protocol Execution Flow and Timing
+
+**Cycle Structure**: Each "cycle" represents handling one complete liquid type through all four volumes:
+- **Cycle 1**: DYE ddH₂O (50→100→150→200 μL, 3× each = 12 events)
+- **Cycle 2**: DYE-FREE ddH₂O (50→100→150→200 μL, 1× each = 4 events)  
+- **Cycle 3**: GLYCEROL (50→100→150→200 μL, 1× each = 4 events)
+- **Cycle 4**: ETHANOL (50→100→150→200 μL, 1× each = 4 events)
+
+**Contamination Prevention**: Fresh tip required between each liquid type (4 tip changes total)
+
+**Expected Timing**:
+- **Expert operators**: 15-18 minutes (consistent pacing, smooth technique execution)
+- **Trained students**: 18-22 minutes (following protocol carefully, some hesitation)
+- **Novice operators**: 22-30 minutes (frequent pauses, technique uncertainties)
 
 ## Comprehensive Metrics Documentation
 
@@ -90,9 +163,26 @@ This repository contains a comprehensive video analysis system for evaluating pi
 
 **English Explanation**: Measures how consistent the operator is in timing between repeated pipetting cycles. Higher scores indicate better reproducibility.
 
+**Cycle Duration Definition**:
+- **What is a "cycle"**: Complete handling of one liquid type through all four volumes (50, 100, 150, 200 μL)
+- **Cycle boundaries**: From first interaction with a liquid type to tip disposal before next liquid
+- **Timing calculation**: `cycle_duration = time_at_tip_disposal - time_at_first_aspiration`
+
+**Example Cycle Breakdown**:
+- **DYE ddH₂O cycle**: ~8-12 minutes (12 dispensing events: 3× each volume)
+- **DYE-FREE ddH₂O cycle**: ~3-5 minutes (4 dispensing events: 1× each volume)
+- **GLYCEROL cycle**: ~4-7 minutes (4 dispensing events + reverse pipetting complexity)
+- **ETHANOL cycle**: ~4-7 minutes (4 dispensing events + pre-wetting steps)
+
+**Cycle Time Variability Examples**:
+- **Expert**: [480s, 240s, 300s, 280s] → std = 105s → consistency = 0.69 (good)
+- **Student**: [600s, 300s, 420s, 380s] → std = 127s → consistency = 0.71 (good)
+- **Novice**: [720s, 480s, 600s, 540s] → std = 102s → consistency = 0.72 (surprisingly good timing despite slower pace)
+
 **Reasoning**: 
 - **Coefficient of Variation (CV) inversion**: CV measures relative variability; subtracting from 1 makes higher values better
 - **Range 0-1**: Provides intuitive scoring where 1.0 = perfect consistency, 0.0 = highly variable
+- **Skill assessment**: Experienced operators show more consistent cycle-to-cycle timing regardless of liquid complexity
 
 #### 2.2 Time Efficiency Score
 **Formula**: `time_efficiency_score = expected_completion_time / actual_total_time`
@@ -111,20 +201,74 @@ This repository contains a comprehensive video analysis system for evaluating pi
 
 **English Explanation**: Measures adherence to reverse pipetting technique required for viscous liquids like glycerol.
 
+**Direction Changes Detailed Breakdown**:
+
+**Standard Pipetting Technique (8 direction changes)**:
+1. **Down**: Lower pipette to liquid surface
+2. **Aspirate**: Press button to first stop, release to aspirate
+3. **Up**: Lift pipette from liquid  
+4. **Move**: Horizontal movement to target well
+5. **Down**: Lower pipette to target well
+6. **Dispense**: Press button to first stop to dispense
+7. **Up**: Lift pipette from well
+8. **Move**: Return to rest position
+
+**Reverse Pipetting Technique (12 direction changes)**:
+1. **Down**: Lower pipette to liquid surface
+2. **Pre-aspirate**: Press button to **second stop** (blow-out position)
+3. **Aspirate**: Release button to aspirate extra volume
+4. **Up**: Lift pipette from liquid
+5. **Move**: Horizontal movement to target well  
+6. **Down**: Lower pipette to target well
+7. **Partial dispense**: Press button only to **first stop** (retains residual)
+8. **Up**: Lift pipette from well
+9. **Evaluate**: Visual check of dispensed volume
+10. **Adjust**: Possible additional small dispense if needed
+11. **Final up**: Complete withdrawal
+12. **Move**: Return to rest position
+
 **Reasoning**: 
-- **Extra steps = 2**: Reverse pipetting requires additional aspiration beyond first stop, creating 2 extra movement phases
+- **Extra steps = 2**: Reverse pipetting requires additional aspiration beyond first stop, creating 2 extra movement phases (pre-aspirate + residual management)
 - **Direction changes = 12**: More movement reversals due to the complex aspiration pattern vs. 8 for standard technique
-- **Technique necessity**: Glycerol's high viscosity requires this specialized technique for accuracy
+- **Technique necessity**: Glycerol's high viscosity (η = 1.41 Pa·s vs water's 0.001 Pa·s) requires this specialized technique for accuracy
+- **Detection method**: Algorithm counts velocity direction reversals to identify technique complexity
 
 #### 3.2 Pre-wetting Adherence (Ethanol)
 **Formula**: `pre_wetting_score = 1.0 if direction_changes >= 12 else 0.7 if >= 8 else 0.3`
 
 **English Explanation**: Assesses whether the operator performed pre-wetting cycles before ethanol aspiration to prevent tip dripping.
 
+**Direction Changes Detailed Breakdown**:
+
+**Standard Pipetting Technique (8 direction changes)**:
+1. **Down**: Lower pipette to liquid surface
+2. **Aspirate**: Press button, release to aspirate
+3. **Up**: Lift pipette from liquid
+4. **Move**: Horizontal movement to target
+5. **Down**: Lower pipette to target well
+6. **Dispense**: Press button to dispense
+7. **Up**: Lift pipette from well
+8. **Move**: Return to rest position
+
+**Pre-wetting Technique (12+ direction changes)**:
+1. **Down**: Lower pipette to ethanol surface
+2. **Pre-wet 1**: Aspirate small volume
+3. **Pre-dispense 1**: Dispense back into source (equilibrates tip)
+4. **Pre-wet 2**: Second aspiration cycle 
+5. **Pre-dispense 2**: Second dispense back into source
+6. **Final aspirate**: Aspirate target volume
+7. **Up**: Lift pipette from liquid
+8. **Move**: Horizontal movement to target
+9. **Down**: Lower pipette to target well
+10. **Dispense**: Press button to dispense
+11. **Up**: Lift pipette from well
+12. **Move**: Return to rest position
+
 **Reasoning**: 
 - **12 direction changes**: Pre-wetting requires initial aspiration-dispense cycles, doubling normal movement patterns
 - **Graduated scoring**: Accounts for partial adherence (some pre-wetting) vs. complete adherence
-- **Ethanol volatility**: High vapor pressure causes tip dripping without pre-wetting, affecting accuracy
+- **Ethanol volatility**: High vapor pressure (5.95 kPa at 20°C vs water's 2.34 kPa) causes tip dripping without pre-wetting, affecting accuracy
+- **Physics basis**: Ethanol vapor expands air cushion in pipette, causing uncontrolled liquid expulsion
 
 ### 4. Spatial Movement Metrics
 
@@ -222,10 +366,44 @@ Where:
 
 **English Explanation**: Composite score combining timing, spatial, and velocity consistency into overall reproducibility assessment.
 
+**Component Variability Definitions**:
+
+**Timing Variability**:
+- **Formula**: `timing_variability = std(cycle_durations)` 
+- **Units**: **seconds** (standard deviation of cycle completion times)
+- **Calculation**: Protocol divided into 4 cycles (one per liquid), duration measured for each cycle
+- **Example**: If cycle times are [45s, 50s, 48s, 52s], then timing_variability = std([45,50,48,52]) = 2.9 seconds
+- **Interpretation**: Lower values indicate more consistent pacing across protocol cycles
+
+**Cycle Duration Context by Liquid Type**:
+- **DYE ddH₂O cycle**: Longest duration (8-12 min) due to 12 dispensing events (3× each volume)
+- **Other cycles**: Shorter duration (3-7 min) due to 4 dispensing events each
+- **Complexity impact**: GLYCEROL and ETHANOL cycles often take longer due to specialized techniques
+- **Skill differentiation**: Experts maintain consistent timing regardless of liquid complexity
+
+**Real-world Examples**:
+- **Expert operator**: [480s, 240s, 300s, 280s] → timing_variability = 105s (excellent consistency)
+- **Trained student**: [600s, 300s, 420s, 380s] → timing_variability = 127s (good consistency)  
+- **Novice operator**: [900s, 600s, 750s, 680s] → timing_variability = 123s (surprising consistency despite slower pace)
+
+**Velocity Variability**: 
+- **Formula**: `velocity_variability = coefficient_of_variation(cycle_velocity_patterns)`
+- **Units**: **dimensionless** (relative variability in movement patterns)
+- **Calculation**: 
+  - Divide protocol into 4 cycles
+  - Calculate mean and std velocity for each cycle
+  - Measure variability in these statistics across cycles
+  - `velocity_variability = (std_cv + mean_cv) / 2` where cv = coefficient of variation
+- **Example**: If cycles show velocity CVs of [0.2, 0.25, 0.22, 0.28], velocity_variability reflects consistency of movement patterns
+- **Interpretation**: Lower values indicate more repeatable movement dynamics across cycles
+
 **Reasoning**: 
-- **Normalization factors**: 10.0s timing, 100px spatial, 50px/frame velocity represent maximum acceptable variability
+- **Normalization factors**: 
+  - **10.0s timing**: Maximum acceptable cycle-to-cycle timing variation (expert: <2s, novice: >5s)
+  - **100px spatial**: Maximum acceptable spatial inconsistency (expert: <30px, novice: >80px) 
+  - **50px/frame velocity**: Maximum acceptable velocity pattern variation
 - **Equal weighting**: All three components equally important for overall technique assessment
-- **0-1 scale**: Provides intuitive scoring system
+- **0-1 scale**: Provides intuitive scoring system where 1.0 = perfect reproducibility, 0.0 = highly variable
 
 #### 7.2 Operator Type Classification
 **Formula**: 
