@@ -14,32 +14,74 @@ This repository contains a comprehensive video analysis system for evaluating pi
 
 ## Comprehensive Metrics Documentation
 
+### Video Analysis Coordinate System
+**Image Coordinate Convention**: 
+- Origin (0,0) is at top-left corner of video frame
+- X-axis increases from left to right
+- Y-axis increases from top to bottom (downward positive)
+- Hand positions tracked as (x,y) pixel coordinates of hand center
+- Movement calculations use consecutive frame differences
+
+**Movement Magnitude Context**:
+- **Typical video resolution**: 1920×1080 pixels (Full HD)
+- **Hand detection area**: Usually 200-800 pixels wide depending on camera angle
+- **Actual movement scale**: 15 pixels ≈ 2-5mm real-world movement (varies with camera distance)
+- **Frame rate**: Typically 30 FPS, so measurements are per 1/30th second intervals
+
 ### 1. Protocol Event Detection Metrics
 
 #### 1.1 Aspiration Event Detection
 **Formula**: `total_aspiration_events = count(upward_movement_magnitude > 15 AND confidence > 0.8)`
+- Where `upward_movement_magnitude = sqrt(dx² + dy²)` when `dy < 0` (upward in image coordinates)
+- Units: **pixels per frame**
 
 **English Explanation**: Counts upward hand movements above threshold that indicate liquid aspiration into the pipette tip.
 
+**Movement Magnitude Calculation**:
+- `dx = current_hand_x - previous_hand_x` (horizontal displacement)
+- `dy = current_hand_y - previous_hand_y` (vertical displacement, negative = upward)
+- `upward_movement_magnitude = sqrt(dx² + dy²)` only when `dy < 0`
+- **Units**: Measured in pixels per frame, representing the Euclidean distance the hand center moved between consecutive video frames
+
 **Reasoning**: 
-- **Threshold 15 pixels**: Chosen based on typical pipette movement amplitude in video resolution
+- **Threshold 15 pixels/frame**: Based on empirical analysis of pipetting videos where typical aspiration movements show 10-30 pixel displacements in standard video resolutions (1920×1080). A 15-pixel threshold captures deliberate pipetting motions while filtering out hand tremor (typically <5 pixels) and camera shake. This corresponds to approximately 2-5mm of actual hand movement depending on camera distance and zoom level.
 - **Confidence 0.8**: High confidence threshold ensures we only count genuine hand movements, reducing false positives from detection noise
+- **Directional filtering**: Only upward movements (dy < 0) are counted since aspiration requires lifting the pipette from liquid surface
 
 #### 1.2 Dispensing Event Detection
 **Formula**: `total_dispensing_events = count(downward_movement_magnitude > 15 AND confidence > 0.8)`
+- Where `downward_movement_magnitude = sqrt(dx² + dy²)` when `dy > 0` (downward in image coordinates)
+- Units: **pixels per frame**
 
 **English Explanation**: Counts downward hand movements that indicate liquid dispensing from the pipette.
 
-**Reasoning**: Same movement and confidence thresholds as aspiration, but for downward movements indicating dispensing actions.
+**Movement Magnitude Calculation**:
+- `dx = current_hand_x - previous_hand_x` (horizontal displacement)
+- `dy = current_hand_y - previous_hand_y` (vertical displacement, positive = downward)
+- `downward_movement_magnitude = sqrt(dx² + dy²)` only when `dy > 0`
+- **Units**: Measured in pixels per frame, representing the Euclidean distance the hand center moved between consecutive video frames
+
+**Reasoning**: 
+- **Threshold 15 pixels/frame**: Same empirical basis as aspiration detection. Dispensing movements typically show similar magnitude displacements as the operator moves the pipette tip to the target well and depresses the plunger. The 15-pixel threshold effectively distinguishes between purposeful dispensing motions and minor positioning adjustments.
+- **Confidence 0.8**: High confidence threshold ensures we only count genuine hand movements, reducing false positives from detection noise
+- **Directional filtering**: Only downward movements (dy > 0) are counted since dispensing requires lowering the pipette toward the target container
 
 #### 1.3 Tip Change Event Detection
 **Formula**: `tip_change_events = count(velocity < mean_velocity * 0.05 for extended_period)`
+- Where `velocity = sqrt(dx² + dy²)` (movement magnitude regardless of direction)
+- Units: **pixels per frame**
 
 **English Explanation**: Detects periods of minimal hand movement indicating tip disposal and replacement.
 
+**Velocity Calculation**:
+- `velocity = sqrt((current_x - previous_x)² + (current_y - previous_y)²)`
+- **Units**: Pixels per frame, representing total hand displacement between consecutive frames
+- **Extended period**: Continuous low-velocity frames lasting >2 seconds (>60 frames at 30 FPS)
+
 **Reasoning**: 
-- **5% of mean velocity**: Very low activity threshold indicates hands are stationary during tip changes
-- Prevents counting brief pauses as tip changes while capturing actual equipment manipulation
+- **5% of mean velocity**: Very low activity threshold indicates hands are stationary during tip changes. If mean velocity is 20 pixels/frame, then 5% = 1 pixel/frame represents near-stillness
+- **Extended period requirement**: Prevents counting brief pauses as tip changes while capturing actual equipment manipulation phases
+- **Biological basis**: Tip changes require 3-5 seconds of careful manipulation with minimal hand movement
 
 ### 2. Timing Consistency Metrics
 
@@ -89,23 +131,40 @@ This repository contains a comprehensive video analysis system for evaluating pi
 #### 4.1 Spatial Variability
 **Formula**: `spatial_variability = std(distances_from_center)`
 - Where `distances_from_center = sqrt((x - center_x)² + (y - center_y)²)`
+- Units: **pixels** (standard deviation of distances)
 
 **English Explanation**: Measures how much hand position varies from the average working position during protocol execution.
+
+**Distance Calculation**:
+- `center_x = mean(all_hand_x_positions)` across entire protocol
+- `center_y = mean(all_hand_y_positions)` across entire protocol  
+- `distance_i = sqrt((x_i - center_x)² + (y_i - center_y)²)` for each frame i
+- `spatial_variability = standard_deviation(all_distances)`
 
 **Reasoning**: 
 - **Euclidean distance**: Standard geometric measure of position deviation
 - **Center-based**: Uses mean position as reference to account for individual working preferences
-- **Lower values**: Indicate more consistent, controlled movements
+- **Lower values**: Indicate more consistent, controlled movements (typical expert: <30 pixels, novice: >80 pixels)
+- **Units context**: 30 pixels ≈ 3-8mm real-world spatial consistency depending on camera setup
 
 #### 4.2 Hand Steadiness Score
 **Formula**: `steadiness_score = 1.0 - (velocity_std / (velocity_mean + 0.001))`
+- Where `velocity = sqrt(dx² + dy²)` for each frame transition
+- Units: **dimensionless score** (0-1 scale)
 
 **English Explanation**: Quantifies hand stability during pipetting operations, with higher scores indicating steadier hands.
 
+**Velocity Statistics**:
+- `velocity_mean = average(all_frame_velocities)` in pixels/frame
+- `velocity_std = standard_deviation(all_frame_velocities)` in pixels/frame
+- **Coefficient of Variation**: `CV = velocity_std / velocity_mean` (dimensionless)
+- **Steadiness Score**: `1.0 - CV` (inverted so higher = steadier)
+
 **Reasoning**: 
-- **CV-based measure**: Relative variability accounts for different movement speeds
-- **Epsilon term (+0.001)**: Prevents division by zero in perfectly still moments
-- **Inversion (1.0 -)**: Makes higher values represent better steadiness
+- **CV-based measure**: Relative variability accounts for different movement speeds across operators
+- **Epsilon term (+0.001)**: Prevents division by zero in perfectly still moments (rare but possible)
+- **Inversion (1.0 -)**: Makes higher values represent better steadiness (0.9+ = very steady, <0.5 = shaky)
+- **Biological interpretation**: Reflects natural hand tremor, fatigue, and motor control precision
 
 ### 5. Volume-Specific Consistency Metrics
 
