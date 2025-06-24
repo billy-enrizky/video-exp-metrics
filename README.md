@@ -91,7 +91,7 @@ This repository contains a comprehensive video analysis system for evaluating pi
 **English Explanation**: Measures how consistent the operator is in timing between repeated pipetting cycles. Higher scores indicate better reproducibility.
 
 **Reasoning**: 
-- **Coefficient of Variation inversion**: CV measures relative variability; subtracting from 1 makes higher values better
+- **Coefficient of Variation (CV) inversion**: CV measures relative variability; subtracting from 1 makes higher values better
 - **Range 0-1**: Provides intuitive scoring where 1.0 = perfect consistency, 0.0 = highly variable
 
 #### 2.2 Time Efficiency Score
