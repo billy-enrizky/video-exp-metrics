@@ -6,7 +6,7 @@ This repository contains a comprehensive video analysis system for evaluating pi
 
 **Objective**: To evaluate and compare the accuracy, reproducibility, and time efficiency of liquid dispensing between automated liquid handlers and manual pipetting across different operator skill levels.
 
-**Complete Experimental Context**: This analysis system was developed for a comprehensive liquid handling study comparing automated systems (Jubilee low-cost, Hamilton Starlet high-accuracy) against manual pipetting across various complexity levels, including basic liquid dispensing, hydrogel dispensing, cell suspension dispensing, and hydrogel-cell mixtures for tissue culture applications.
+**Complete Experimental Context**: This analysis system was developed for a comprehensive liquid handling study comparing manual pipetting across various people.
 
 ### Detailed Protocol Description
 
