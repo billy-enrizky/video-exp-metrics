@@ -1,0 +1,74 @@
+LIQUID HANDLING REPRODUCIBILITY EXPERIMENT ANALYSIS
+======================================================================
+
+Operator Type: Experienced Lab Worker
+Video: C0040.MP4
+Analysis Date: 2025-06-18 03:26:33
+
+PROTOCOL EXECUTION SUMMARY:
+  Total Dispensing Events: 0/16 expected
+  Protocol Completion: 0.0%
+  Execution Time: 14.1 minutes
+  Time Consistency Score: 0.000
+
+REPRODUCIBILITY METRICS:
+  Overall Reproducibility Score: 0.989/1.0
+
+ACCURACY PREDICTIONS BY VOLUME:
+  50 μL:
+    Predicted CV: 29.15%
+    Target CV: <5.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  50 μL:
+    Predicted CV: 29.15%
+    Target CV: <5.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  100 μL:
+    Predicted CV: 29.15%
+    Target CV: <3.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  100 μL:
+    Predicted CV: 29.15%
+    Target CV: <3.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  150 μL:
+    Predicted CV: 29.15%
+    Target CV: <2.5%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  150 μL:
+    Predicted CV: 29.15%
+    Target CV: <2.5%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  200 μL:
+    Predicted CV: 29.15%
+    Target CV: <2.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+  200 μL:
+    Predicted CV: 29.15%
+    Target CV: <2.0%
+    Meets Target: ✗ NO
+    Accuracy Score: 0.000/1.0
+
+TECHNIQUE ADHERENCE:
+  Reverse Pipetting (Glycerol): 0.00/1.0
+  Pre-wetting (Ethanol): 0.30/1.0
+  Contamination Prevention: 1.00/1.0
+
+OPERATOR CLASSIFICATION:
+  Classification: novice_learning
+  Confidence: 0.40/1.0
+  Consistency Rating: Low

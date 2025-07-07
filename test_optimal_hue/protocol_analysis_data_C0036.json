@@ -1,0 +1,348 @@
+{
+  "analysis_timestamp": "2025-06-17T12:40:05.377937",
+  "protocol_config": {
+    "volumes": [
+      50,
+      100,
+      150,
+      200
+    ],
+    "liquids": [
+      "DYE_ddH2O",
+      "DYE-FREE_ddH2O",
+      "GLYCEROL",
+      "ETHANOL"
+    ],
+    "schemes": {
+      "DYE_ddH2O": [
+        50,
+        100,
+        150,
+        200
+      ],
+      "DYE-FREE_ddH2O": [
+        50,
+        100,
+        150,
+        200
+      ],
+      "GLYCEROL": [
+        50,
+        100,
+        150,
+        200
+      ],
+      "ETHANOL": [
+        50,
+        100,
+        150,
+        200
+      ]
+    },
+    "expected_cycles": 16,
+    "tip_changes": 4,
+    "special_techniques": {
+      "GLYCEROL": "reverse_pipetting",
+      "ETHANOL": "pre_wetting"
+    },
+    "operator_types": [
+      "freshly_trained_student",
+      "experienced_lab_worker",
+      "automated_liquid_handler"
+    ],
+    "measurement_focus": "reproducibility_metrics",
+    "accuracy_targets": {
+      "50": {
+        "tolerance": "\u00b12%",
+        "expected_cv": "<5%"
+      },
+      "100": {
+        "tolerance": "\u00b11.5%",
+        "expected_cv": "<3%"
+      },
+      "150": {
+        "tolerance": "\u00b11.3%",
+        "expected_cv": "<2.5%"
+      },
+      "200": {
+        "tolerance": "\u00b11%",
+        "expected_cv": "<2%"
+      }
+    },
+    "critical_consistency_factors": [
+      "aspiration_speed_uniformity",
+      "dispensing_angle_consistency",
+      "tip_depth_standardization",
+      "inter_liquid_contamination_prevention",
+      "timing_between_operations",
+      "hand_steadiness_throughout_protocol"
+    ],
+    "expected_completion_time": 1200
+  },
+  "metrics": {
+    "video_info": {
+      "filename": "C0036.MP4",
+      "duration_seconds": 1219.322033898305,
+      "fps": 59,
+      "total_frames": 71940,
+      "processed_frames": 67,
+      "resolution": "1920x1080",
+      "file_size_gb": 7.477249718271196
+    },
+    "hand_detection": {
+      "frames_with_hands": 1,
+      "hand_detection_rate": 0.014925373134328358,
+      "avg_confidence_dominant": 0.01475605413095275
+    },
+    "protocol_analysis": {
+      "protocol_events": {
+        "total_aspiration_events": 0,
+        "total_dispensing_events": 0,
+        "total_tip_changes": 0,
+        "estimated_cycles": 0,
+        "protocol_completion_percentage": 0.0
+      },
+      "timing_metrics": {
+        "total_time_seconds": 16.779661016949152,
+        "average_cycle_time": 0,
+        "cycle_time_std": 0,
+        "cycle_consistency_score": 0,
+        "time_efficiency_score": 71.51515151515152,
+        "expected_vs_actual_time_ratio": 71.51515151515152
+      },
+      "skill_assessment": {
+        "estimated_experience_level": "Novice/Learning",
+        "operator_type_classification": "novice_learning",
+        "overall_skill_score": 0.4,
+        "consistency_rating": "Low",
+        "speed_rating": "Fast"
+      },
+      "reproducibility_analysis": {
+        "cycle_variability_seconds": 0,
+        "reproducibility_metrics": {
+          "volume_consistency": {
+            "50uL": {
+              "volume": 50,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 2.748600573140796,
+              "velocity_consistency_cv": 0.0,
+              "average_duration": 4.004237288135593,
+              "average_velocity": 0.0,
+              "cycles": [
+                {
+                  "volume": 50,
+                  "duration": 3.8135593220338984,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 50,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 50,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 50,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                }
+              ]
+            },
+            "100uL": {
+              "volume": 100,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 2.748600573140796,
+              "velocity_consistency_cv": 0.0,
+              "average_duration": 4.004237288135593,
+              "average_velocity": 0.0,
+              "cycles": [
+                {
+                  "volume": 100,
+                  "duration": 3.8135593220338984,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 100,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 100,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 100,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                }
+              ]
+            },
+            "150uL": {
+              "volume": 150,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 2.748600573140796,
+              "velocity_consistency_cv": 0.0,
+              "average_duration": 4.004237288135593,
+              "average_velocity": 0.0,
+              "cycles": [
+                {
+                  "volume": 150,
+                  "duration": 3.8135593220338984,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 150,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 150,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 150,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                }
+              ]
+            },
+            "200uL": {
+              "volume": 200,
+              "cycles_detected": 4,
+              "duration_consistency_cv": 2.748600573140796,
+              "velocity_consistency_cv": 0.0,
+              "average_duration": 4.004237288135593,
+              "average_velocity": 0.0,
+              "cycles": [
+                {
+                  "volume": 200,
+                  "duration": 3.8135593220338984,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 200,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 200,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                },
+                {
+                  "volume": 200,
+                  "duration": 4.067796610169491,
+                  "total_movement": "0",
+                  "avg_velocity": 0.0,
+                  "velocity_std": 0.0,
+                  "steadiness_score": 1.0
+                }
+              ]
+            }
+          },
+          "liquid_consistency": {
+            "DYE_ddH2O": "    frame_number  ...  dominant_hand_acceleration\n0              0  ...                           0\n1             15  ...                           0\n2             30  ...                           0\n3             45  ...                           0\n4             60  ...                           0\n5             75  ...                           0\n6             90  ...                           0\n7            105  ...                           0\n8            120  ...                           0\n9            135  ...                           0\n10           150  ...                           0\n11           165  ...                           0\n12           180  ...                           0\n13           195  ...                           0\n14           210  ...                           0\n15           225  ...                           0\n\n[16 rows x 8 columns]",
+            "DYE-FREE_ddH2O": "    frame_number  ...  dominant_hand_acceleration\n16           240  ...                           0\n17           255  ...                           0\n18           270  ...                           0\n19           285  ...                           0\n20           300  ...                           0\n21           315  ...                           0\n22           330  ...                           0\n23           345  ...                           0\n24           360  ...                           0\n25           375  ...                           0\n26           390  ...                           0\n27           405  ...                           0\n28           420  ...                           0\n29           435  ...                           0\n30           450  ...                           0\n31           465  ...                           0\n\n[16 rows x 8 columns]",
+            "GLYCEROL": "    frame_number  ...  dominant_hand_acceleration\n32           480  ...                           0\n33           495  ...                           0\n34           510  ...                           0\n35           525  ...                           0\n36           540  ...                           0\n37           555  ...                           0\n38           570  ...                           0\n39           585  ...                           0\n40           600  ...                           0\n41           615  ...                           0\n42           630  ...                           0\n43           645  ...                           0\n44           660  ...                           0\n45           675  ...                           0\n46           690  ...                           0\n47           705  ...                           0\n\n[16 rows x 8 columns]",
+            "ETHANOL": "    frame_number  ...  dominant_hand_acceleration\n48           720  ...                           0\n49           735  ...                           0\n50           750  ...                           0\n51           765  ...                           0\n52           780  ...                           0\n53           795  ...                           0\n54           810  ...                           0\n55           825  ...                           0\n56           840  ...                           0\n57           855  ...                           0\n58           870  ...                           0\n59           885  ...                           0\n60           900  ...                           0\n61           915  ...                           0\n62           930  ...                           0\n63           945  ...                           0\n\n[16 rows x 8 columns]"
+          },
+          "technique_adherence": {
+            "reverse_pipetting_glycerol": 0.0,
+            "pre_wetting_ethanol": 0.3,
+            "tip_change_technique": 0.0,
+            "cross_contamination_prevention": 0.3
+          },
+          "inter_cycle_variability": {
+            "timing_variability": 1.7467508920769126e-16,
+            "spatial_variability": 0.5,
+            "velocity_variability": 0.0,
+            "overall_reproducibility_score": 0.9983333333333334
+          },
+          "overall_metrics": {}
+        },
+        "accuracy_predictions": {
+          "50uL": {
+            "predicted_cv_percent": 0.687150143285199,
+            "target_cv_percent": 5.0,
+            "meets_target": "True",
+            "accuracy_score": 0.8625699713429602
+          },
+          "100uL": {
+            "predicted_cv_percent": 0.687150143285199,
+            "target_cv_percent": 3.0,
+            "meets_target": "True",
+            "accuracy_score": 0.770949952238267
+          },
+          "150uL": {
+            "predicted_cv_percent": 0.687150143285199,
+            "target_cv_percent": 2.5,
+            "meets_target": "True",
+            "accuracy_score": 0.7251399426859204
+          },
+          "200uL": {
+            "predicted_cv_percent": 0.687150143285199,
+            "target_cv_percent": 2.0,
+            "meets_target": "True",
+            "accuracy_score": 0.6564249283574005
+          }
+        },
+        "overall_reproducibility_score": 0.9983333333333334,
+        "expected_expert_variability": 2.0,
+        "expected_student_variability": 5.0,
+        "performance_category": "Novice",
+        "accuracy_prediction": "Low"
+      }
+    }
+  },
+  "frame_data_summary": "67 frames analyzed"
+}

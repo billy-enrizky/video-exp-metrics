@@ -1,0 +1,42 @@
+PIPETTING PROTOCOL ANALYSIS REPORT
+============================================================
+
+Video File: C0039.MP4
+Analysis Date: 2025-06-18 04:17:15
+Protocol: Reproducibility Experiment (4 liquids, 4 volumes)
+
+PROTOCOL EXECUTION SUMMARY:
+  Estimated Cycles Completed: 0/16
+  Protocol Completion: 0.0%
+  Total Time: 847.3 seconds (14.1 minutes)
+  Average Cycle Time: 0.0 seconds
+  Cycle Consistency Score: 0.000
+
+OPERATOR SKILL ASSESSMENT:
+  Estimated Experience Level: Novice/Learning
+  Operator Type Classification: freshly_trained_student
+  Overall Skill Score: 0.40/1.0
+  Consistency Rating: Low
+  Speed Rating: Fast
+
+REPRODUCIBILITY ANALYSIS:
+  Overall Reproducibility Score: 0.990/1.0
+  Cycle Time Variability: 0.0 seconds
+
+ACCURACY PREDICTIONS BY VOLUME:
+  50uL: Predicted CV 34.7% (Target: <5.0%) - ✗ EXCEEDS TARGET
+  100uL: Predicted CV 34.7% (Target: <3.0%) - ✗ EXCEEDS TARGET
+  150uL: Predicted CV 34.7% (Target: <2.5%) - ✗ EXCEEDS TARGET
+  200uL: Predicted CV 34.7% (Target: <2.0%) - ✗ EXCEEDS TARGET
+
+TECHNIQUE ADHERENCE:
+  Reverse Pipetting (Glycerol): 1.00/1.0
+  Pre-wetting (Ethanol): 0.30/1.0
+  Tip Change Execution: 0.00/1.0
+
+Comparison to Expert Std (2.0s): Better
+
+TECHNICAL ANALYSIS:
+  Hand Detection Rate: 0.7%
+  Average Detection Confidence: 0.006
+  Frames Processed: 5000
