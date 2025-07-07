@@ -2,6 +2,8 @@
 
 This repository contains a comprehensive video analysis system for evaluating pipetting techniques in liquid handling experiments. The system analyzes operator performance through computer vision and generates quantitative metrics for reproducibility assessment.
 
+See: `reproducibility_results_long/experienced_lab_worker_C0045/protocol_plots`
+
 ## Protocol Overview
 
 **Objective**: To evaluate and compare the accuracy, reproducibility, and time efficiency of liquid dispensing between automated liquid handlers and manual pipetting across different operator skill levels.
